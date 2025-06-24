@@ -12,8 +12,6 @@ services:
       - "8051:8051"
     networks:
       - dokploy-network
-    depends_on:
-      - litellm
     deploy:
       resources:
         limits:
@@ -21,9 +19,6 @@ services:
         reservations:
           memory: 1G
 
-  # ваша существующая LiteLLM-нода
-  litellm:
-    external: true                           # уже запущена на 192.168.16.9:4000
 
 networks:
   dokploy-network:
