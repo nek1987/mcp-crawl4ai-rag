@@ -18,6 +18,8 @@ services:
       USE_AGENTIC_RAG: "false"
       USE_RERANKING: "false"
       USE_KNOWLEDGE_GRAPH: "false"
+      SUPABASE_URL: "http://dummy.local"
+      SUPABASE_SERVICE_KEY: "dummy-key"
     ports:
       - "8051:8051"
     deploy:
