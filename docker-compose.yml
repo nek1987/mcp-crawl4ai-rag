@@ -10,6 +10,7 @@ services:
       TRANSPORT: "sse"   
       OPENAI_API_KEY: "${OPENAI_API_KEY}"
       OPENAI_BASE_URL: "${OPENAI_BASE_URL}"
+      MCP_AUTH_TOKEN: "${MCP_API_KEY}"
       # режем всё «лишнее»
       USE_CONTEXTUAL_EMBEDDINGS: "false"
       USE_HYBRID_SEARCH: "false"
