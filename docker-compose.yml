@@ -20,15 +20,9 @@ services:
       USE_KNOWLEDGE_GRAPH: "false"
     ports:
       - "8051:8051"
-    networks:
-      - dokploy-network
     deploy:
       resources:
         limits:
-          memory: 4G
+          memory: 6G
         reservations:
-          memory: 1G
-
-networks:
-  dokploy-network:
-    external: true 
+          memory: 2G
