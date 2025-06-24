@@ -7,7 +7,7 @@ services:
     env_file:
       - .env   
     environment:  
-      TRANSPORT: "http"   
+      TRANSPORT: "sse"   
       OPENAI_API_KEY: "${OPENAI_API_KEY}"
       OPENAI_BASE_URL: "${OPENAI_BASE_URL}"
       # режем всё «лишнее»
