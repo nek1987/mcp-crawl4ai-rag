@@ -19,7 +19,7 @@ services:
       USE_RERANKING: "false"
       USE_KNOWLEDGE_GRAPH: "false"
       SUPABASE_URL: "http://dummy.local"
-      SUPABASE_SERVICE_KEY: "dummy-key"
+      SUPABASE_SERVICE_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.dGVzdC5k"
     ports:
       - "8051:8051"
     deploy:
