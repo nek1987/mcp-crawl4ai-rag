@@ -1,13 +1,23 @@
-version: "3.8"
 services:
   crawl4ai-rag:
-    image: mcp/crawl4ai-rag:latest           # можно собрать сами, см. ниже
-    build:
-      context: ./mcp-crawl4ai-rag
+    build:    
+      context: . 
+      dockerfile: Dockerfile
       args:
-        PORT: 8051
+        PORT: 8051   
+    image: crawl4ai-rag:local
     env_file:
-      - .env
+      - .env   
+    environment:  
+      TRANSPORT: "sse"   
+      OPENAI_API_KEY: "${OPENAI_API_KEY}"
+      OPENAI_BASE_URL: "${OPENAI_BASE_URL}"
+      # режем всё «лишнее»
+      USE_CONTEXTUAL_EMBEDDINGS: "false"
+      USE_HYBRID_SEARCH: "false"
+      USE_AGENTIC_RAG: "false"
+      USE_RERANKING: "false"
+      USE_KNOWLEDGE_GRAPH: "false"
     ports:
       - "8051:8051"
     networks:
@@ -18,6 +28,7 @@ services:
           memory: 4G
         reservations:
           memory: 1G
+
 networks:
   dokploy-network:
-    external: true
+    external: true 
