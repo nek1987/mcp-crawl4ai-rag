@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  crawl4ai-rag:
+    image: mcp/crawl4ai-rag:latest           # можно собрать сами, см. ниже
+    build:
+      context: ./mcp-crawl4ai-rag
+      args:
+        PORT: 8051
+    env_file:
+      - .env
+    ports:
+      - "8051:8051"
+    networks:
+      - dokploy-network
+    depends_on:
+      - litellm
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 1G
+
+  # ваша существующая LiteLLM-нода
+  litellm:
+    external: true                           # уже запущена на 192.168.16.9:4000
+
+networks:
+  dokploy-network:
+    external: true
