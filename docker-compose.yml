@@ -18,5 +18,6 @@ services:
           memory: 4G
         reservations:
           memory: 1G
-    networks:
-      - dokploy-network
+networks:
+  dokploy-network:
+    external: true
