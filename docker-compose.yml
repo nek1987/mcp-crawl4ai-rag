@@ -1,10 +1,9 @@
 services:
   crawl4ai-rag:
-    build:    
-      context: . 
-      dockerfile: Dockerfile
-      args:
-        PORT: 8051   
+    command: >
+      python /app/src/crawl4ai_mcp.py
+      --host 0.0.0.0 --port 8051
+      --transport streamable-http
     image: crawl4ai-rag:local
     env_file:
       - .env   
